@@ -134,7 +134,9 @@ impl<S: VhostUserSlaveReqHandler> SlaveReqHandler<S> {
             }
         };
 
-        match hdr.get_code() {
+        let req = hdr.get_code();
+        trace!("got slave request {:?}", req);
+        match req {
             MasterReq::SET_OWNER => {
                 self.check_request_size(&hdr, size, 0)?;
                 self.backend.lock().unwrap().set_owner()?;

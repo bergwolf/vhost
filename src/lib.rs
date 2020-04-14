@@ -38,6 +38,8 @@
 )]
 extern crate bitflags;
 extern crate libc;
+#[macro_use]
+extern crate log;
 #[cfg(feature = "vhost-kern")]
 extern crate vm_memory;
 #[cfg_attr(feature = "vhost-kern", macro_use)]
